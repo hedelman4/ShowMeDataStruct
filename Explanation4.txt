@@ -1,0 +1,3 @@
+PROBLEM 4: ACTIVE DIRECTORY
+
+The is_user_in_group method requires O(n) time complexity to check if any given user is a member of the entire user set within a group.

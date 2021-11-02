@@ -1,0 +1,15 @@
+PROBLEM 1: LRU CACHE
+
+In the constructor, I instantiated an array with a size based on the designated capacity of the cache. 
+
+For the "get" method, if the target key is an element of the array, the target key will be moved in front of all of the elements of 
+the array up to the target key's original index. This effectively creates a "cache hit," making the target key the most recently used
+element in the cache.
+
+For the "set method, if the target key is not an element of the array, the target key will be added as the first element of the array.
+All of the remaining elements will be pushed down the cache, with the least recently used element being pushed out of the array.
+
+I used an array to contain the keys, since I found it easier to manipulate the order of the elements of an array than other data
+structures. The "get" and "set" methods require O(n) complexity due to containment if statements and the shuffling of the order of the
+other elements outside of the target key. The space complexity of the elements in th array wouldn't need to exceed the integer storage
+size of 4 bytes per element.

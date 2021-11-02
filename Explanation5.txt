@@ -1,0 +1,5 @@
+PROBLEM 5: BLOCKCHAIN
+
+The BLockchain implementation requires time complexity of O(n) depending on how many sequential chains are recorded. A singly linked
+list allows for each chain to point to its predecessor. The space complexity would depend on the type of data being hashed, as well as
+hash type being used.

@@ -1,0 +1,10 @@
+PROBLEM 6: UNION AND INTERSECTION OF TWO LINKED LISTS
+
+For the union function, I used a to_list method to convert linked lists into python list objects. This makes it easier to combine all
+of the elements of each linked list. Since the to_list appends each element one by one, this union fucntion requires time complexity
+of O(n). 
+
+The intersection function requires O(n^2) time complexity since it searches through the elements of the second linked list for each of the
+elements in the first linked list.
+
+The space should be based on the number of integers in each linked list requiring 4 bytes of storage per integer. 

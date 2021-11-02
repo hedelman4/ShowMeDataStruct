@@ -1,0 +1,19 @@
+PROBLEM 3: HUFFMAN CODING
+
+To encode a string using Huffman Coding, I built an array based on the characters in the string to be embedded and then sorted those 
+characters from lowest to highest frequency. In order to create a binary tree, I used a Node class with various embedded methods. First, 
+I established all of the leaves of the tree based on the sorted list of characters. Then I used a recursive method to pair up all nodes 
+based on the order of the values of their frequency, each level of nodes is either paired up or orphaned with no pair. The recursion 
+terminates once there is only 1 single node left unpaired indicating the root of the tree. I use a recursive method to traverse
+the tree using pre-order traversal depth first search. Through the traversal, I store "0" everytime I find a left child and "1" for 
+right children. The recursion terminates when the traversal is complete and all leaves have been accounted for.
+
+To decode the Huffman Code, each "0" and "1" directs the traversal to either the left or right child respectively. As a leaf is
+identified, its value (associated character) is concatenated to a new empty string ultimately spelling out the decoded message.
+
+The time complexity of the encoding process requires O(n^4) reflecting the construction of the character array, the sorting of that
+array, the pairing of the nodes, and finally, the traversal of the tree to encode the characters.
+
+The time complexity of the decoding process requires O(n) since each leaf will be visited through pre-order depth first search 
+traversal. 
+

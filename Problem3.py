@@ -39,7 +39,6 @@ huffmanList = {}
 def huffman_encoding(data):
 
     nodeList = []
-    nodeCount = 0
 
     for _ in data.lower():
         huffmanList[_] = huffmanList.get(_,0) + 1
@@ -51,7 +50,6 @@ def huffman_encoding(data):
         nodeValue = nodePop[1]
         node = Node(nodeValue, nodeItem)
         nodeList.append(node)
-        nodeCount += 1
 
     nodeIterations(nodeList, data)
 
@@ -101,10 +99,10 @@ def encode(root, codeDict):
 
 def huffman_decoding(data):
     decodedString = ''
-    if data[0] == 0:
+    if data[0] == '0':
         activeNode = root.get_left_child()
     else:
-        activeNode = root.get_left_child()
+        activeNode = root.get_right_child()
     for _ in range(len(data)):
 
         if _+1 == len(data):
