@@ -11,5 +11,5 @@ All of the remaining elements will be pushed down the cache, with the least rece
 
 I used an array to contain the keys, since I found it easier to manipulate the order of the elements of an array than other data
 structures. The "get" and "set" methods require O(n) complexity due to containment if statements and the shuffling of the order of the
-other elements outside of the target key. The space complexity of the elements in th array wouldn't need to exceed the integer storage
-size of 4 bytes per element.
+other elements outside of the target key. The space complexity of the elements in the array wouldn't need to exceed the integer storage
+size of 4 bytes per element. The space complexity would require O(n) dependent on the designated capacity of the cache.

@@ -1,6 +1,9 @@
 import os
 
-def find_files(suffix, path, pathArray = []):
+global pathArray
+pathArray = []
+
+def find_files(suffix, path):
     for _ in os.listdir(path):
         if os.path.isdir(os.path.join(path,_)):
             find_files(suffix,os.path.join(path,_))
@@ -9,3 +12,7 @@ def find_files(suffix, path, pathArray = []):
     return pathArray
 
 print(find_files(".c","./testdir"))
+pathArray.clear()
+print(find_files("  ","./testdir"))
+pathArray.clear()
+print(find_files("None","./testdir"))

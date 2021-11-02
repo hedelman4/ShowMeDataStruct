@@ -7,4 +7,5 @@ of O(n).
 The intersection function requires O(n^2) time complexity since it searches through the elements of the second linked list for each of the
 elements in the first linked list.
 
-The space should be based on the number of integers in each linked list requiring 4 bytes of storage per integer. 
+The time space complexity should be based on the number of integers in each linked list requiring 4 bytes of storage per integer. 
+The requirement should be O(n) based on the number of elements in the linked lists being checked. 

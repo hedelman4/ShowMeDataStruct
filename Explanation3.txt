@@ -11,9 +11,9 @@ right children. The recursion terminates when the traversal is complete and all 
 To decode the Huffman Code, each "0" and "1" directs the traversal to either the left or right child respectively. As a leaf is
 identified, its value (associated character) is concatenated to a new empty string ultimately spelling out the decoded message.
 
-The time complexity of the encoding process requires O(n^4) reflecting the construction of the character array, the sorting of that
-array, the pairing of the nodes, and finally, the traversal of the tree to encode the characters.
+The time complexity of the encoding process requires O(nlogn). 
 
 The time complexity of the decoding process requires O(n) since each leaf will be visited through pre-order depth first search 
-traversal. 
+traversal.
 
+The space complexity would be O(n), which is driven by the complexity of the string to be encoded.

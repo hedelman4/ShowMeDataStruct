@@ -38,6 +38,14 @@ class LinkedList:
         node.next = Node(value)
         return
 
+    def to_list(self):
+        out_list = []
+        node = self.head
+        while node:
+            out_list.append(node.value)
+            node = node.next
+        return out_list
+
 linked_list = LinkedList()
 
 Block0 = Block(datetime.fromtimestamp(time.time()),'Block 0',linked_list.head)
@@ -52,4 +60,11 @@ linked_list.append(Block2)
 node = linked_list.head
 while node:
     print(node.value,node.value.data,node.value.previous_hash,node.value.hash)
+    print(node.value.timestamp)
     node = node.next
+
+BlockNum = 2
+if BlockNum > len(linked_list.to_list()) - 1 or BlockNum <= 0:
+    print('Block does not exist')
+else:
+    print(linked_list.to_list()[BlockNum])

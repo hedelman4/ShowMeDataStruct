@@ -4,4 +4,5 @@ I used recursion to find the file path leaves that were not themselves directori
 I would store file paths that end with ".c" in an otherwise empty array.
 
 The function involves checking every possible file path in the inital directory, thus requiring time complexity O(n) dependent upon how
-many leaves there are in the initial directory.
+many leaves there are in the initial directory. The space complexity would be O(1) with the constant being based on the existing number
+of files in the directory.

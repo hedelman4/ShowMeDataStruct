@@ -1,3 +1,5 @@
+import sys
+
 class Group(object):
     def __init__(self, _name):
         self.name = _name
@@ -20,13 +22,6 @@ class Group(object):
         return self.name
 
 def is_user_in_group(user, group):
-    """
-    Return True if user is in the group, False otherwise.
-
-    Args:
-      user(str): user name/id
-      group(class:Group): group to check user membership against
-    """
     boolean = False
     for _ in group.get_users():
         if user == _:
@@ -40,8 +35,12 @@ sub_child = Group("subchild")
 sub_child_user = "sub_child_user"
 sub_child.add_user(sub_child_user)
 
+sub_sub_child_user = "sub_sub_child_user"
+
 child.add_group(sub_child)
 parent.add_group(child)
 
 print(is_user_in_group(sub_child_user,sub_child))
 print(is_user_in_group(sub_child_user,child))
+print(is_user_in_group('',child))
+print(is_user_in_group(sub_sub_child_user,child))

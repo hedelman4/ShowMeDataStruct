@@ -2,4 +2,7 @@ PROBLEM 5: BLOCKCHAIN
 
 The BLockchain implementation requires time complexity of O(n) depending on how many sequential chains are recorded. A singly linked
 list allows for each chain to point to its predecessor. The space complexity would depend on the type of data being hashed, as well as
-hash type being used.
+hash type being used. The space complexity should be O(n) for this program strictly based on the number of characters to be encoded.
+The SHA256 output should have the same storage requirements regardless of the input. 
+
+
