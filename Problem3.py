@@ -69,7 +69,7 @@ def nodeIterations(nodeList, data):
         newNodeList.append(nodeList.pop(0))
 
     if len(newNodeList) > 1:
-        nodeIterations(newNodeList, data)
+        nodeIterations(newNodeList, data.lower())
 
     if len(newNodeList) == 1:
         global root
@@ -95,6 +95,9 @@ def encode(root, codeDict):
             codeDict[root.get_right_child().item] = root.get_right_child().code
         encode(root.get_right_child(), codeDict)
 
+    if root.get_left_child() == None and root.get_right_child() == None and len(codeDict) == 0:
+        codeDict[root.item] = '0'
+
     return codeDict
 
 def huffman_decoding(data):
@@ -103,25 +106,31 @@ def huffman_decoding(data):
         activeNode = root.get_left_child()
     else:
         activeNode = root.get_right_child()
-    for _ in range(len(data)):
 
-        if _+1 == len(data):
-            decodedString = decodedString + activeNode.get_item()
-
-        elif data[_+1] == '0':
-            if activeNode.has_left_child():
-                activeNode = activeNode.get_left_child()
-            else:
+    if len(codeDict) > 1:
+        for _ in range(len(data)):
+            if _+1 == len(data):
                 decodedString = decodedString + activeNode.get_item()
-                activeNode = root.get_left_child()
 
-        elif data[_+1] == '1':
-            if activeNode.has_right_child():
-                activeNode = activeNode.get_right_child()
-            else:
-                decodedString = decodedString + activeNode.get_item()
-                activeNode = root.get_right_child()
+            elif data[_+1] == '0':
+                if activeNode.has_left_child():
+                    activeNode = activeNode.get_left_child()
+                else:
+                    decodedString = decodedString + activeNode.get_item()
+                    activeNode = root.get_left_child()
+
+            elif data[_+1] == '1':
+                if activeNode.has_right_child():
+                    activeNode = activeNode.get_right_child()
+                else:
+                    decodedString = decodedString + activeNode.get_item()
+                    activeNode = root.get_right_child()
+    else:
+        for _ in range(len(data)):
+            decodedString = decodedString + root.item
+
     return decodedString
+
 if __name__ == "__main__":
     #Test Case 1
     a_great_sentence = "The bird is the word"
@@ -139,7 +148,9 @@ if __name__ == "__main__":
     print ("The size of the decoded data is: {}\n".format(sys.getsizeof(decoded_data)))
     print ("The content of the encoded data is: {}\n".format(decoded_data))
 
-    #Test Case 2
+    codeDict.clear()
+
+#Test Case 2
     a_great_sentence = "AAAAA"
 
     print ("The size of the data is: {}\n".format(sys.getsizeof(a_great_sentence)))
@@ -154,6 +165,8 @@ if __name__ == "__main__":
 
     print ("The size of the decoded data is: {}\n".format(sys.getsizeof(decoded_data)))
     print ("The content of the encoded data is: {}\n".format(decoded_data))
+
+    codeDict.clear()
 
     #Test Case 3
     a_great_sentence = "     A      "
@@ -170,3 +183,5 @@ if __name__ == "__main__":
 
     print ("The size of the decoded data is: {}\n".format(sys.getsizeof(decoded_data)))
     print ("The content of the encoded data is: {}\n".format(decoded_data))
+
+    codeDict.clear()

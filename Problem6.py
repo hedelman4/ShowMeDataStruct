@@ -46,7 +46,13 @@ class LinkedList:
         return out_list
 
 def union(llist_1, llist_2):
-    return llist_1.to_list() + llist_2.to_list()
+    llist_3 = []
+    llist_4 = []
+    llist_3 = llist_1.to_list() + llist_2.to_list()
+    for _ in llist_3:
+        if _ not in llist_4:
+            llist_4.append(_)
+    return llist_4
 
 def intersection(llist_1, llist_2):
     out_list = []
@@ -54,7 +60,7 @@ def intersection(llist_1, llist_2):
     llist_2 = llist_2.to_list()
     while node1:
         for _ in llist_2:
-            if node1.value == _:
+            if node1.value == _ and _ not in out_list:
                 out_list.append(llist_2.pop(llist_2.index(_)))
         node1 = node1.next
     return out_list
